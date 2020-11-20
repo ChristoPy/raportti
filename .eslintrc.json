@@ -1,0 +1,15 @@
+{
+    "extends": "airbnb",
+    "env": {
+      "node": true,
+      "browser": true
+    },
+    "rules": {
+      "semi": "off",
+      "object-curly-newline": "off",
+      "no-param-reassign": "off",
+      "no-console": "off",
+      "prefer-rest-params": "off"
+    }
+  }
+  
