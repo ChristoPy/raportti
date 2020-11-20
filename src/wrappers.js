@@ -21,6 +21,10 @@ const getStackTrace = () => {
 }
 
 function informationWrapper() {
+  report({
+    timestamp: Date.now(),
+    stackTrace: getStackTrace(),
+  }, baseURL)
   oldInfo(...arguments)
 }
 
