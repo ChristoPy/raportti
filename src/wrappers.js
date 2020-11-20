@@ -23,7 +23,7 @@ const getStackTrace = () => {
 function informationWrapper() {
   report({
     timestamp: Date.now(),
-    stackTrace: getStackTrace(),
+    stacktrace: getStackTrace(),
   }, baseURL)
   oldInfo(...arguments)
 }
@@ -31,7 +31,7 @@ function informationWrapper() {
 function warningWrapper() {
   report({
     timestamp: Date.now(),
-    stackTrace: getStackTrace(),
+    stacktrace: getStackTrace(),
   }, baseURL)
   oldWarn(...arguments);
 }
@@ -39,7 +39,7 @@ function warningWrapper() {
 function exceptionWrapper() {
   report({
     timestamp: Date.now(),
-    stackTrace: getStackTrace(),
+    stacktrace: getStackTrace(),
   }, baseURL)
   oldError(...arguments)
 }
@@ -49,11 +49,11 @@ export const wrapInfo = () => {
 }
 
 export const wrapWarn = () => {
-  console.info = warningWrapper
+  console.warn = warningWrapper
 }
 
 export const wrapError = () => {
-  console.info = exceptionWrapper
+  console.error = exceptionWrapper
 }
 
 export const setBaseURL = (URLToSet) => {
