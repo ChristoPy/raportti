@@ -1,4 +1,9 @@
-import { wrapError, wrapWarn, wrapInfo } from './wrappers';
+import {
+  wrapError,
+  wrapWarn,
+  wrapInfo,
+  setBaseURL,
+} from './wrappers';
 
 const lookupTable = {
   error: wrapError,
@@ -7,11 +12,13 @@ const lookupTable = {
 };
 
 export default function (baseURL, options) {
-  Object.keys(options).forEach((key) => {
-    const methodIdDefined = lookupTable[key];
+  setBaseURL(baseURL);
 
-    if(methodIdDefined) {
-      methodIdDefined();
+  Object.keys(options).forEach((key) => {
+    const methodIsDefined = lookupTable[key];
+
+    if(methodIsDefined) {
+      methodIsDefined();
     }
   });
 };

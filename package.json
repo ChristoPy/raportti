@@ -1,0 +1,22 @@
+{
+  "name": "raportti",
+  "version": "1.0.0",
+  "description": "Get all logs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChristoPy/raportti.git"
+  },
+  "keywords": [
+    "logs"
+  ],
+  "author": "Christopher Ribeiro <christo_campiglia@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChristoPy/raportti/issues"
+  },
+  "homepage": "https://github.com/ChristoPy/raportti#readme"
+}

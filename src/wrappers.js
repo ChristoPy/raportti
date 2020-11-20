@@ -1,16 +1,12 @@
+import report from './report';
+
 const oldInfo = console.info;
 const oldWarn = console.warn;
 const oldError = console.error;
 
-const informationWrapper = function () {
-  oldInfo(...arguments);
-};
+let baseURL;
 
-const warningWrapper = function () {
-  oldWarn(...arguments);
-};
-
-const exceptionWrapper = function () {
+const getStackTrace = () => {
   let stackTrace;
 
   try {
@@ -21,8 +17,26 @@ const exceptionWrapper = function () {
 
   stackTrace = stackTrace.split('\n');
   stackTrace.splice(0, 2);
-  stackTrace = stackTrace.map((trace) => trace.trim());
+  return stackTrace.map((trace) => trace.trim());
+}
 
+const informationWrapper = function () {
+  oldInfo(...arguments);
+};
+
+const warningWrapper = function () {
+  report({
+    timestamp: Date.now(),
+    stackTrace: getStackTrace(),
+  }, baseURL);
+  oldWarn(...arguments);
+};
+
+const exceptionWrapper = function () {
+  report({
+    timestamp: Date.now(),
+    stackTrace: getStackTrace(),
+  }, baseURL);
   oldError(...arguments);
 };
 
@@ -36,4 +50,8 @@ export const wrapWarn = () => {
 
 export const wrapError = () => {
   console.info = exceptionWrapper;
+};
+
+export const setBaseURL = (URLToSet) => {
+  baseURL = URLToSet;
 };
