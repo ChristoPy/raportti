@@ -1,35 +1,17 @@
-const oldInfo = console.info;
-const oldWarn = console.warn;
-const oldError = console.error;
+import { wrapError, wrapWarn, wrapInfo } from './wrappers';
 
-const informationWrapper = function () {
-  oldInfo(...arguments);
-};
-const warningWrapper = function () {
-  oldWarn(...arguments);
-};
-const exceptionWrapper = function () {
-  let stackTrace;
-
-  try {
-    throw new Error('==raportti==');
-  } catch (error) {
-    stackTrace = error.stack;
-  }
-
-  stackTrace = stackTrace.split('\n');
-  stackTrace.splice(0, 2);
-  stackTrace = stackTrace.map((trace) => trace.trim());
-
-  oldError(...arguments);
+const lookupTable = {
+  error: wrapError,
+  warn: wrapWarn,
+  info: wrapInfo,
 };
 
-console.info = informationWrapper;
-console.warn = warningWrapper;
-console.error = exceptionWrapper;
+export default function (baseURL, options) {
+  Object.keys(options).forEach((key) => {
+    const methodIdDefined = lookupTable[key];
 
-module.exports = {
-  informationWrapper,
-  warningWrapper,
-  exceptionWrapper,
+    if(methodIdDefined) {
+      methodIdDefined();
+    }
+  });
 };
