@@ -1,7 +1,7 @@
 {
   "name": "raportti",
-  "version": "0.0.2",
-  "description": "Get all logs",
+  "version": "0.0.3",
+  "description": "Capture error logs from your application.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,10 @@
     "url": "git+https://github.com/ChristoPy/raportti.git"
   },
   "keywords": [
-    "logs"
+    "logs",
+    "raportti",
+    "log",
+    "capture"
   ],
   "author": "Christopher Ribeiro <christo_campiglia@hotmail.com>",
   "license": "MIT",
