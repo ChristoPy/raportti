@@ -12,7 +12,7 @@ Raportti is a small library to capture logs from your front-end
 ```javascript
 import Raportti from 'raportti';
 
-Raportti('api.myapplication.com', {
+Raportti('api.myapplication.com/logs', {
   error: true, // Get errors
   warn: true,  // Get warnings
   info: true,  // Get simple logs

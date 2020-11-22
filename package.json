@@ -1,6 +1,6 @@
 {
   "name": "raportti",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Capture error logs from your application.",
   "main": "src/index.js",
   "scripts": {
