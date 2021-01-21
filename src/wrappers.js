@@ -20,26 +20,32 @@ const getStackTrace = () => {
   return stackTrace.map((trace) => trace.trim())
 }
 
-function informationWrapper() {
+function informationWrapper(name) {
   report({
-    timestamp: Date.now(),
+    name,
+    type: 'information',
     stacktrace: getStackTrace(),
+    timestamp: Date.now(),
   }, baseURL)
   oldInfo(...arguments)
 }
 
-function warningWrapper() {
+function warningWrapper(name) {
   report({
-    timestamp: Date.now(),
+    name,
+    type: 'warning',
     stacktrace: getStackTrace(),
+    timestamp: Date.now(),
   }, baseURL)
   oldWarn(...arguments);
 }
 
-function exceptionWrapper() {
+function exceptionWrapper(name) {
   report({
-    timestamp: Date.now(),
+    name,
+    type: 'error',
     stacktrace: getStackTrace(),
+    timestamp: Date.now(),
   }, baseURL)
   oldError(...arguments)
 }
