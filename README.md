@@ -1,5 +1,5 @@
 # Raportti
-Capture error logs from your application.
+Capture logs from your application.
 
 
 ## What is is
@@ -21,7 +21,7 @@ Raportti('api.myapplication.com/logs', {
 ```
 
 ## Reasons
-Because sometimes logging/monitoring software are expensive or simple hard to use
+* Because sometimes logging/monitoring software are expensive or simple hard to use
 
 ## Version
-0.0.3
+0.0.6

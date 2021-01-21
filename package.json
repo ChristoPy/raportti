@@ -1,7 +1,7 @@
 {
   "name": "raportti",
-  "version": "0.0.4",
-  "description": "Capture error logs from your application.",
+  "version": "0.0.6",
+  "description": "Capture logs from your application.",
   "main": "dist/index.js",
   "scripts": {
     "build": "parcel build src/index.js"
