@@ -21,7 +21,7 @@ Raportti('api.myapplication.com/logs', {
 ```
 
 ## Reasons
-* Because sometimes logging/monitoring software are expensive or simple hard to use
+* Because sometimes logging/monitoring software are expensive or simply hard to use
 
 ## Version
 0.0.6
